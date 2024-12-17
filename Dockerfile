@@ -8,7 +8,7 @@ FROM base AS build
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
-RUN --mount=type=cache,id=railway-pnpm-store-${RAILWAY_PROJECT_ID},target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 RUN pnpm run -r build
 
